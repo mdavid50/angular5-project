@@ -1,18 +1,16 @@
-import {Component, OnInit} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import {Observable} from "rxjs/Observable";
 import {User} from "../classes/user";
-import {UserService} from "../services/user.service";
 
-@Component({
-    templateUrl: "./templates/splash.html"
-})
+@Injectable()
+export class UserService {
 
-export class SplashComponent implements OnInit {
-    users: User[] = [];
+    constructor(protected http: HttpClient) {}
 
-    constructor(private userService: UserService) {}
+    private userUrl = "https://jsonplaceholder.typicode.com/users/";
 
-    ngOnInit(): void {
-        this.userService.getAllUsers()
-            .subscribe(users => this.users = users);
+    getAllUsers() : Observable<User[]> {
+        return(this.http.get<User[]>(this.userUrl));
     }
 }
