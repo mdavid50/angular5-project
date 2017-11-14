@@ -2,10 +2,9 @@
   "name": "angular5-project",
   "version": "3.0.0",
   "license": "Apache-2.0",
-  "author": {
-    "name": "Matthew David",
-    "email": "mcdavid3636@gmail.com",
-    "url": "https://www.mattjdavid.com/"
+  "author": "Matthew David",
+    "name": "Matthew David"
+
   },
   "scripts": {
     "build": "rimraf public_html/dist && tsc && webpack --config webpack/webpack.live.js --progress --profile --bail",
